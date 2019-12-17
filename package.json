@@ -1,0 +1,92 @@
+{
+  "name": "ng-simple-alert",
+  "version": "0.0.0-development",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "test:lib-coverage": "ng test ng-alert --code-coverage --watch=false",
+    "report-coverage:lib": "cat ./coverage/ng-alert/lcov.info | codecov",
+    "build": "npm run build:lib && npm run build:demo",
+    "copy:readme": "copyfiles ./README.md ./dist/ng-simple-alert",
+    "build:lib": "npm run copy:readme && ng-simple-alert",
+    "build:showcase": "ng build ng-alert-showcase --base-href='https://mgrabm.github.io/ng-simple-alert'",
+    "publish:demo": "npx angular-cli-ghpages --dir=./dist/ng-alert-showcase",
+    "format:check": "prettier --list-different 'projects/**/*.ts'",
+    "format:write": "prettier --write 'projects/**/*.ts'",
+    "report-cover: lib": "cat ./coverage/ng-alert/lcov.info | codecov",
+    "semantic-release": "semantic-release"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~8.2.13",
+    "@angular/common": "~8.2.13",
+    "@angular/compiler": "~8.2.13",
+    "@angular/core": "~8.2.13",
+    "@angular/forms": "~8.2.13",
+    "@angular/platform-browser": "~8.2.13",
+    "@angular/platform-browser-dynamic": "~8.2.13",
+    "@angular/router": "~8.2.13",
+    "bootstrap": "^4.3.1",
+    "rxjs": "~6.4.0",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.803.19",
+    "@angular-devkit/build-ng-packagr": "~0.803.19",
+    "@angular/cli": "~8.3.18",
+    "@angular/compiler-cli": "~8.2.13",
+    "@angular/language-service": "~8.2.13",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/prompt": "^8.2.0",
+    "@semantic-release/exec": "^3.3.8",
+    "@types/jasmine": "~3.3.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "codecov": "^3.6.1",
+    "codelyzer": "^5.0.0",
+    "copyfiles": "^2.1.1",
+    "husky": "^3.1.0",
+    "jasmine-core": "~3.4.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.1.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.0",
+    "lint-staged": "^9.4.3",
+    "ng-packagr": "^5.4.0",
+    "prettier": "^1.19.1",
+    "protractor": "~5.4.0",
+    "semantic-release": "^15.13.31",
+    "ts-node": "~7.0.0",
+    "tsickle": "^0.37.0",
+    "tslint": "~5.15.0",
+    "typescript": "~3.5.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "projects/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgrabm/ng-simple-alert.git"
+  }
+}
